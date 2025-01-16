@@ -2,13 +2,7 @@
 import numpy as np
 
 def generate_bpp_data(num_samples, max_container_size=(100, 100, 100), n_range=(10, 50)):
-    """
-    生成 BPP 数据集，包含容器和物品数据
-    :param num_samples: 样本数量
-    :param max_container_size: 容器最大尺寸
-    :param n_range: 每个样本的物品数量范围
-    :return: 数据集
-    """
+   
     dataset = []
     for _ in range(num_samples):
         container_size = tuple(np.random.randint(50, max_container_size[i] + 1) for i in range(3))
@@ -52,6 +46,5 @@ def generate_bpp_data(num_samples, max_container_size=(100, 100, 100), n_range=(
 
         dataset.append({"container_size": container_size, "items": items})
     return dataset
-
 train_data = generate_bpp_data(10000)
 test_data = generate_bpp_data(2000)
